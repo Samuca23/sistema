@@ -15,7 +15,7 @@ if (isset($_POST['gravar'])) {
 <form method="post">
     <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+        <input type="text" class="form-control" name="nome"  id="nome"   placeholder="Nome">
         <input type="text" class="form-control" name="sigla" id="siglas" placeholder="Sigla">
     </div>
     <input type="submit" name="gravar" value="Gravar">

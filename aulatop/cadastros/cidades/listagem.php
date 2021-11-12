@@ -40,8 +40,8 @@ try {
                     <td><?= $row['nome'] ?></td>
                     <td><?= $row['estado'] ?></td>
                     <td>
-                        <a href="?modulo=estados&pagina=alterar&id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Alterar</a>
-                        <a href="?modulo=estados&pagina=deletar&id=<?= $row['id'] ?>" class="btn btn-danger btn-sm">Excluír</a>
+                        <a href="?modulo=cidades&pagina=alterar&id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Alterar</a>
+                        <a href="?modulo=cidades&pagina=deletar&id=<?= $row['id'] ?>" class="btn btn-danger btn-sm">Excluír</a>
                     </td>
                 </tr>
         <?php

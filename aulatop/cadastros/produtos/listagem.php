@@ -1,0 +1,54 @@
+<?php
+if (isset($_GET['id']))
+    $id = $_GET['id'];
+
+try {
+    if (isset($id)) {
+        $stmt = $conn->prepare('SELECT * FROM produtos WHERE id = :id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    } else {
+        $stmt = $conn->prepare('SELECT * FROM produtos');
+    }
+    //$stmt->execute(array('id' => $id));
+    $stmt->execute();
+
+    //while($row = $stmt->fetch()) {
+    //while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+    //print_r($row);
+    //}
+
+    $result = $stmt->fetchAll();
+?>
+    <table border="1" class="table table-striped">
+        <tr>
+            <td>Id</td>
+            <td>Código</td>
+            <td>Descrição</td>
+            <td>Valor</td>
+            <td>Ação</td>
+        </tr>
+        <?php
+        if (count($result)) {
+            foreach ($result as $row) {
+        ?>
+                <tr>
+                    <td><?= $row['id'] ?></td>
+                    <td><?= $row['codigo'] ?></td>
+                    <td><?= $row['nome'] ?></td>
+                    <td><?= $row['valor'] ?></td>
+                    <td>
+                        <a href="?modulo=produtos&pagina=alterar&id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Alterar</a>
+                        <a href="?modulo=produtos&pagina=deletar&id=<?= $row['id'] ?>" class="btn btn-danger btn-sm">Excluír</a>
+                    </td>
+                </tr>
+        <?php
+            }
+        } else {
+            echo "Nenhum resultado retornado.";
+        }
+        ?>
+    </table>
+<?php
+} catch (PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage();
+}
