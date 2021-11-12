@@ -2,8 +2,7 @@
 if (isset($_POST['alterar'])) {
     try {
         $stmt = $conn->prepare(
-            'UPDATE estados SET nome = :nome WHERE id = :id',
-            'UPDATE estados SET sigla = :sigla WHERE id = :id'
+            'UPDATE estados SET nome = :nome, sigla = :sigla WHERE id = :id'
         );
         //$stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute(array(
