@@ -25,3 +25,8 @@ session_start();
         }
  }
 
+ if (isset($_POST['cadastro'])) {
+   require_once 'layouts/cadastro.php';
+}
+
+
