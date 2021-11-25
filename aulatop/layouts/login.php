@@ -19,7 +19,7 @@
             <input class="form-control" type="password" name="senha" placeholder="Senha">
             <br>
             <input type="submit" name="logar" class="btn btn-success" value="Entrar">
-            <input type="submit" name="cadastro" class="btn btn-secondary" value="Cadastra-se">
+            <a class="btn btn-danger" href="?acao=cadastro">Cadastre-se</a>
         </form>
     </body>
     </html>
@@ -32,11 +32,5 @@ if (isset($_POST['logar'])) {
         echo '<h4 style="color: red;">Login ou senha incorreta!</h4>';
     }
 }
-
-
-if (isset($_POST['cadastro'])) {
-    require_once 'layouts/cadastro.php';
-    header('Location: layouts/cadastro.php');
- }
 ?>
 </div>

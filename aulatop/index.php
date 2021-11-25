@@ -1,6 +1,10 @@
 <?php
 session_start();
- if (!isset($_SESSION['logado'])) {
+if (isset($_GET['acao'])) {
+    require_once("layouts/cadastro.php");
+    // header("Location: index.php");
+  }
+ else if (!isset($_SESSION['logado'])) {
     require_once "layouts/login.php";
  } else {
         include "bibliotecas/parametros.php";
@@ -20,13 +24,6 @@ session_start();
         if (isset($_GET['desconectar'])) {
             $_SESSION['usuario'] = null;
             session_destroy();
-           // unset($_SESSION['logado']);
             header("Location: index.php");
         }
  }
-
- if (isset($_POST['cadastro'])) {
-   require_once 'layouts/cadastro.php';
-}
-
-
