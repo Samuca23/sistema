@@ -1,11 +1,10 @@
 <?php
 session_start();
-if (isset($_GET['acao'])) {
+if (isset($_GET['modulo'])) {
     require_once("layouts/cadastro.php");
-    // header("Location: index.php");
   }
  else if (!isset($_SESSION['logado'])) {
-    require_once "layouts/login.php";
+    require_once ("layouts/login.php");
  } else {
         include "bibliotecas/parametros.php";
         include "bibliotecas/conexao.php";

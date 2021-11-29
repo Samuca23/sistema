@@ -19,7 +19,7 @@
             <input class="form-control" type="password" name="senha" placeholder="Senha">
             <br>
             <input type="submit" name="logar" class="btn btn-success" value="Entrar">
-            <a class="btn btn-danger" href="?acao=cadastro">Cadastre-se</a>
+            <a class="btn btn-danger" href="?modulo=usuarios&pagina=cadastro">Cadastre-se</a>
         </form>
     </body>
     </html>
