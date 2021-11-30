@@ -32,6 +32,7 @@ if (isset($_POST['cadastrado'])) {
             <input class="form-control" type="password" name="password" placeholder="Senha">
             <br>
             <input type="submit" name="cadastrado" class="btn btn-success" value="Cadastra-se">
+            <a class="btn btn-danger" href="index.php">Logar</a>
         </div>
     </form>
 </body>

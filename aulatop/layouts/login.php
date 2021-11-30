@@ -28,8 +28,29 @@ if (isset($_POST['logar'])) {
     if (($_POST['login'] == 'admin') && ($_POST['senha'] == 'admin')) {
         $_SESSION['logado'] = true;
         header('Location: index.php');
-    } else {
+    } elseif (count(dadosUsuarios())) {
+        $_SESSION['logado'] = true;
+        header("Location: index.php");
+    }
+    else {
         echo '<h4 style="color: red;">Login ou senha incorreta!</h4>';
+    }
+}
+
+ function dadosUsuarios() {
+     try {
+        require_once ("bibliotecas/parametros.php");
+        require_once ("bibliotecas/conexao.php");
+        $stmt = $conn->prepare("SELECT login,
+                            password 
+                        FROM usuarios
+                        WHERE login = ('{$_POST['login']}')
+                        AND password = md5('{$_POST['senha']}')");
+        $stmt->execute();
+        return $result = $stmt->fetchAll();
+    }
+    catch (PDOException $e) {
+        echo 'ERROR: ' . $e->getMessage();
     }
 }
 ?>
