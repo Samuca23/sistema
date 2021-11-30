@@ -3,9 +3,7 @@ if (isset($_POST['cadastrado'])) {
     try {
         require_once ("bibliotecas/parametros.php");
         require_once ("bibliotecas/conexao.php");
-        $stmt = $conn->prepare(
-            'INSERT INTO usuarios (login, email, nome, password) values (:login, :email, :nome,  MD5:password)'
-        );
+        $stmt = $conn->prepare('INSERT INTO usuarios (login, email, nome, password) VALUES (:login, :email, :nome,  MD5(:password))');
         $stmt->execute(array('login' => $_POST['login'], 'email' => $_POST['email'], 'nome' => $_POST['nome'], 'password' => $_POST['password']));
     } catch (PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
