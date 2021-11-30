@@ -1,24 +1,26 @@
 <?php
 
-if (isset($_GET['id']))
-$id = $_GET['id'];
 
+
+$iItensPorPagina = 3;
 try {
     if (isset($id)) {
         $stmt = $conn->prepare('SELECT * FROM estados WHERE id = :id');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     } else {
-        $stmt = $conn->prepare('SELECT * FROM estados');
+        $stmt = $conn->prepare('SELECT * FROM estados LIMIT ' . $iItensPorPagina . '');
     }
-    //$stmt->execute(array('id' => $id));
+
     $stmt->execute();
 
-    //while($row = $stmt->fetch()) {
-    //while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
-    //print_r($row);
-    //}
-
     $result = $stmt->fetchAll();
+// $iPaginaAtual = intval($_GET['pagina']);
+
+// $iNumItem = ceil(count($result)/$iItensPorPagina);
+// $iInicioDados = ($iItensPorPagina * $iPaginaAtual);
+
+// if (isset($_GET['id']))
+// $id = $_GET['id'];
 
 ?>
 
@@ -30,6 +32,9 @@ try {
             <td>Ação</td>
         </tr>
         <?php
+        for($i = 1; $i <= $iNumItem; $i++) {
+            echo '<a href="?pagina=' . $i . '">' . $i . '</a>';
+        }
         if (count($result)) {
             foreach ($result as $row) {
         ?>
@@ -49,7 +54,6 @@ try {
         }
         ?>
     </table>
-
 <?php
 } catch (PDOException $e) {
     echo 'ERROR: ' . $e->getMessage();
