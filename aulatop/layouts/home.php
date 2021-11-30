@@ -9,8 +9,10 @@
 </head>
 <body>
     <div class="container">
-        <h3>Bem vindos ao sistema Final BSN 4º fase</h3>
-        <p>Sistema com cadastro, listagem, alteração e exlcusão.</p>
+        <h2>Bem vindo ao Sistema Final BSN 4º fase</h2>
+        <h3>Disciplina: Desenvolvimento Web I</h3>
+        <p>Sistema com cadastro, listagem, alteração e exclusão.</p>
+        <p>Para o desenvolvimento foi usado, HTML, CSS, PHP e BOOTSTRAP</p>
         <br/>
         <h4>Aluno: Samuel Chiodini.</h4>
     </div>

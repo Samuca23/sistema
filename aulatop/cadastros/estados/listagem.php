@@ -32,9 +32,9 @@ try {
             <td>Ação</td>
         </tr>
         <?php
-        for($i = 1; $i <= $iNumItem; $i++) {
-            echo '<a href="?pagina=' . $i . '">' . $i . '</a>';
-        }
+        // for($i = 1; $i <= $iNumItem; $i++) {
+        //     echo '<a href="?pagina=' . $i . '">' . $i . '</a>';
+        // }
         if (count($result)) {
             foreach ($result as $row) {
         ?>
