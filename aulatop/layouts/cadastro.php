@@ -20,7 +20,7 @@ if (isset($_POST['cadastrado'])) {
     <title>Cadastro</title>
 </head>
 <body>
-    <form method="POST">
+    <form method="POST" action="?acao=cadastro">
         <div class="container">
             <h3>Cadastro</h3>
             <input class="form-control" type="text" name="nome" placeholder="Nome completo">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_GET['modulo'])) {
+if (isset($_GET['acao'])) {
     require_once("layouts/cadastro.php");
     // header("Location: index.php");
   }
